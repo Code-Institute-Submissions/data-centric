@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Centric | Property</title>
+</head>
+<body>
+    {% for Properties in properties %}
+        {{ Properties.Properties_Name }}<br />
+        {{ Properties.PropertyType_Name }}<br />
+        {{ Properties.Properties_Description }}<br />
+        {{ Properties.Viewing_Available }}<br />
+        {{ Properties.Auction_Date }}<br />
+    {% endfor %}
+</body>
+</html>
