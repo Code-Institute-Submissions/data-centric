@@ -1,18 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for Properties in properties %}
+    <!-- {% for Properties in properties %}
         {{ Properties.Properties_Name }}<br />
         {{ Properties.PropertyType_Name }}<br />
         {{ Properties.Properties_Description }}<br />
         {{ Properties.Viewing_Available }}<br />
         {{ Properties.Auction_Date }}<br />
-    {% endfor %}
+    {% endfor %} -->
 
     <ul class="collapsible">
+        {% for Properties in properties %}
         <li>
-            <div class="collapsible-header"><i class="fas fa-building"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header">
+                <i class="fas fa-building"></i>
+                <b>{{ Properties.Properties_Name }}</b>&nbsp;| Auction Date: {{ Properties.Auction_Date }}
+                &nbsp;
+                {% if Properties.Viewing_Available == "yes" %}
+                    <i class="fas fa-eye text-lighten-2 viewing-style tooltipped"
+                    data-position="bottom" data-tooltip="Viewing Available"></i>
+                {% elif Properties.Viewing_Available == "no" %}
+                    <i class="fas fa-eye-slash text-lighten-2 viewing-style tooltipped"
+                    data-position="bottom" data-tooltip="Viewing Not Available"></i>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <b>{{ Properties.PropertyType_Name }}</b>
+                <p>{{ Properties.Properties_Description }}</p>
+                {% if Properties.Viewing_Available == "yes" %}
+                    <i class="fas fa-eye text-lighten-2 viewing-style">  Viewing Available</i>
+                {% elif Properties.Viewing_Available == "no" %}
+                    <i class="fas fa-eye-slash text-lighten-2 viewing-style">  Viewing Not Available</i>
+                {% endif %}
+            </div>
         </li>
         <li>
             <div class="collapsible-header"><i class="fas fa-building"></i>Second</div>
@@ -22,6 +42,7 @@
             <div class="collapsible-header"><i class="fas fa-building"></i>Third</div>
             <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
         </li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

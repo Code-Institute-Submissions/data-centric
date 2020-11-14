@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_properties")
 def get_properties():
-    properties = mongo.db.Properties.find()
+    properties = list(mongo.db.Properties.find())
     return render_template("properties.html", properties=properties)
 
 
