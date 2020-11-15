@@ -24,6 +24,24 @@ def get_properties():
     return render_template("properties.html", properties=properties)
 
 
+@app.route("/add_property", methods=["GET", "POST"])
+def add_property():
+    if request.method == "POST":
+        Viewing_Available = "yes" if request.form.get("Viewing_Available") else "no"
+        Properties = {
+            "PropertyType_Name": request.form.get("PropertyType_Name"),
+            "Properties_Name": request.form.get("Properties_Name"),
+            "Properties_Description": request.form.get("Properties_Description"),
+            "Viewing_Available": Viewing_Available,
+            "Auction_Date": request.form.get("Auction_Date")
+        }
+        mongo.db.Properties.insert_one(Properties)
+        flash("Property added successfully")
+        return redirect(url_for("get_properties"))
+        
+    propertytypes = mongo.db.PropertyType.find().sort("PropertyType_Name", 1)
+    return render_template("add_property.html", propertytypes=propertytypes)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
