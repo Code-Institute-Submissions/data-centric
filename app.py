@@ -33,7 +33,8 @@ def add_property():
             "Properties_Name": request.form.get("Properties_Name"),
             "Properties_Description": request.form.get("Properties_Description"),
             "Viewing_Available": Viewing_Available,
-            "Auction_Date": request.form.get("Auction_Date")
+            "Auction_Date": request.form.get("Auction_Date"),
+            "Img_URL": request.form.get("Img_URL")
         }
         mongo.db.Properties.insert_one(Properties)
         flash("Property added successfully")
@@ -45,9 +46,30 @@ def add_property():
 
 @app.route("/edit_property/<property_id>", methods=["GET", "POST"])
 def edit_property(property_id):
+
+    if request.method == "POST":
+        Viewing_Available = "yes" if request.form.get("Viewing_Available") else "no"
+        enter = {
+            "PropertyType_Name": request.form.get("PropertyType_Name"),
+            "Properties_Name": request.form.get("Properties_Name"),
+            "Properties_Description": request.form.get("Properties_Description"),
+            "Viewing_Available": Viewing_Available,
+            "Auction_Date": request.form.get("Auction_Date"),
+            "Img_URL": request.form.get("Img_URL")
+        }
+        mongo.db.Properties.update({"_id": ObjectId(property_id)}, enter)
+        flash("Property updated successfully")
+
     property = mongo.db.Properties.find_one({"_id": ObjectId(property_id)})
     propertytypes = mongo.db.PropertyType.find().sort("PropertyType_Name", 1)
     return render_template("edit_property.html", property=property, propertytypes=propertytypes)
+
+
+@app.route("/delete_property/<property_id>")
+def delete_property(property_id):
+    mongo.db.Properties.remove({"_id": ObjectId(property_id)})
+    flash("Task deleted successfully")
+    return redirect(url_for("get_properties"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
