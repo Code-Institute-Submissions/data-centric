@@ -15,7 +15,13 @@
         {% for Properties in properties %}
         <li>
             <div class="collapsible-header">
-                <i class="fas fa-building"></i>
+                <div class="col s3">
+                    <i class="fas fa-caret-down"></i>
+                    <a href="" class="btn-small indigo accent-4">Done</a>
+                    <a href="{{ url_for('edit_property', property_id=Properties._id) }}" class="btn-small green accent-4">Edit</a>
+                </div>
+                <div class="col s9">
+                    <i class="fas fa-building"></i>
                 <b>{{ Properties.Properties_Name }}</b>&nbsp;| Auction Date: {{ Properties.Auction_Date }}
                 &nbsp;
                 {% if Properties.Viewing_Available == "yes" %}
@@ -25,6 +31,7 @@
                     <i class="fas fa-eye-slash text-lighten-2 icon-style tooltipped"
                     data-position="bottom" data-tooltip="Viewing Not Available"></i>
                 {% endif %}
+                </div>
             </div>
             <div class="collapsible-body">
                 <b>{{ Properties.PropertyType_Name }}</b>

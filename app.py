@@ -42,6 +42,13 @@ def add_property():
     propertytypes = mongo.db.PropertyType.find().sort("PropertyType_Name", 1)
     return render_template("add_property.html", propertytypes=propertytypes)
 
+
+@app.route("/edit_property/<property_id>", methods=["GET", "POST"])
+def edit_property(property_id):
+    property = mongo.db.Properties.find_one({"_id": ObjectId(property_id)})
+    propertytypes = mongo.db.PropertyType.find().sort("PropertyType_Name", 1)
+    return render_template("edit_property.html", property=property, propertytypes=propertytypes)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
