@@ -15,10 +15,10 @@
 
     <header>
         <!-- Navbar on top-->
-        <nav class="nav-extended text-shadow indigo darken-3">
+        <nav class="nav-extended text-shadow indigo darken-3">      
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_properties') }}" class="brand-logo">Property Manager</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('get_properties') }}"><h5 style="float:left;">Property Manager</h5></a>
+                <a href="#" style="float:right;" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_properties') }}">Home</a></li>
                     <li><a href="{{ url_for('add_property') }}">New Property</a></li>
