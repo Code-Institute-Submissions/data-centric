@@ -4,20 +4,20 @@ A data-centric project that provides users the ability to view/manage properties
 
 ## UX
 
-The UX/UI of this website was designed to simple and clear for any end user. Materialize was utilised to achieve this goal where their navigation templates were used.
+The UX/UI of this website was designed to be simple and clear for any end user. Materialize was utilised to achieve this goal where their navigation templates were used.
 
 ## Features
 
-View Properties (Homepage)
-- A collection of properties that have been added. Expandable div's that contain additional property information.
-Add property
-- Contains a form that sends user entered property values to the database in order to be viewed later.
-Edit Property
-- Retrieves fields from the database based on user selection, enabling the user to manipulate the values in related fields.
-Delete Property
-- Removes the selected property from the database.
-Mobile friendly
-- Utilizes a side navigation bar to enable mobile usability.
+- View Properties (Homepage)
+    - A collection of properties that have been added. Expandable div's that contain additional property information.
+- Add property
+    - Contains a form that sends user entered property values to the database in order to be viewed later.
+- Edit Property
+    - Retrieves fields from the database based on user selection, enabling the user to manipulate the values in related fields.
+- Delete Property
+    - Removes the selected property from the database.
+- Mobile friendly
+    - Utilizes a side navigation bar to enable mobile usability.
 
 ### Future Improvements
 
