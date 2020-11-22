@@ -1,45 +1,59 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Property Manager
 
-Welcome Sami Erol,
+A data-centric project that provides users the ability to view/manage properties for auction.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+## UX
 
-## Gitpod Reminders
+The UX/UI of this website was designed to simple and clear for any end user. Materialize was utilised to achieve this goal where their navigation templates were used.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+View Properties (Homepage)
+- A collection of properties that have been added. Expandable div's that contain additional property information.
+Add property
+- Contains a form that sends user entered property values to the database in order to be viewed later.
+Edit Property
+- Retrieves fields from the database based on user selection, enabling the user to manipulate the values in related fields.
+Delete Property
+- Removes the selected property from the database.
+Mobile friendly
+- Utilizes a side navigation bar to enable mobile usability.
 
-A blue button should appear to click: *Make Public*,
+### Future Improvements
 
-Another blue button should appear to click: *Open Browser*.
+- Instead of displaying one photo, show the user a gallery
+- Add authentication, allow admins to manage properties while regular users can browse/submit offers.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Technologies Used
 
-A blue button should appear to click: *Make Public*,
+- [GitHub](https://github.com/)
+    - The project uses **GitHub** as a code repository
+- [GitPod](https://gitpod.io)
+    - The project uses **GitPod** as the hosted online code editing environment
+- [Materialize](https://materializecss.com/)
+    - The project uses **Materialize** to access pre-constructed styling elements
+- [FontAwesome](https://fontawesome.com/)
+    - The project uses **FontAwesome** for graphical icons
+- [JQuery](https://jquery.com)
+    - The project uses **JQuery** to initiate functionality provided my Materialize
+- [Heroku](https://heroku.com)
+    - The project uses **Heroku** to host the code stored in GitHub
+- In addition to the required languages of HTML, CSS & Python(+PyMongo)
 
-Another blue button should appear to click: *Open Browser*.
+## Testing
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+All forms and buttons work as expected.
 
-## Updates Since The Instructional Video
+Pages usable on mobile/desktop
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Deployment
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+This project uses Heroku for hosting. Each commit forces a deploy to the platform.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Config vars are utilized in Heroku for the DB relationship.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Credit
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+https://github.com/Code-Institute-Org/gitpod-full-template
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+The above is the Code Institute student template for Gitpod.
